@@ -1,0 +1,28 @@
+# Add any directories, files, or patterns you don't want to be tracked by version control
+
+# ignore vs code project config files
+.vscode
+.vs
+
+# ignore logs
+logs
+*.log
+
+# Dev stuff
+Dockerfile
+tests
+heroku.yml
+docker-compose.yml
+migrations
+.devcontainer
+.env*
+.gitignore
+.gitattributes
+.editorconfig
+
+# other stuff
+.DS_Store
+.dccache
+README.md
+Makefile
+LICENSE

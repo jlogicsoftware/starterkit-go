@@ -1,0 +1,36 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:12-alpine
+    container_name: postgres
+    ports:
+      - "5432:5432"
+    restart: always
+    volumes: 
+      - ./postgres:/var/lib/postgresql/data
+      - ./database/dbinit.sql:/docker-entrypoint-initdb.d/dbinit.sql
+    environment:
+      - POSTGRES_DB=todo-db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+
+  adminer:
+    image: adminer
+    restart: always
+    depends_on:
+      - postgres
+    ports:
+      - "9000:8080"
+
+  mailhog:
+    image: mailhog/mailhog
+    logging:
+      driver: "none" # disable saving logs
+    ports:
+      - 1025:1025 # smtp server
+      - 8025:8025 # web ui
+
+volumes:
+  postgres:
+    driver: local

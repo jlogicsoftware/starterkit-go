@@ -1,0 +1,23 @@
+{
+  "workbench.colorCustomizations": {
+    "titleBar.activeForeground": "#ffffff",
+    "titleBar.activeBackground": "#00ADD8"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": true,
+  "editor.tabSize": 2,
+  "cSpell.words": [
+    "autoload",
+    "caarlos",
+    "godotenv",
+    "jlogicsoftware",
+    "joho",
+    "Msgf",
+    "starterkit",
+    "zerolog"
+  ],
+  "[go]": {
+    "editor.defaultFormatter": "golang.go"
+  }
+}
