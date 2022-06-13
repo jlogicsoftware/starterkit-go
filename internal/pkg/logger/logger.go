@@ -9,6 +9,14 @@ import (
 	"github.com/rs/zerolog/log"
 )
 
+type Logger struct {
+	logger *zerolog.Logger
+}
+
+func (l *Logger) Write(p []byte) (n int, err error) {
+	return l.logger.Write(p)
+}
+
 var output = zerolog.ConsoleWriter{Out: os.Stdout, TimeFormat: time.RFC3339}
 
 func init() {

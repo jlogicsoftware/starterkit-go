@@ -46,7 +46,7 @@ func New() (*Server, error) {
 		TLSNextProto:      map[string]func(*http.Server, *tls.Conn, http.Handler){},
 		ConnState: func(net.Conn, http.ConnState) {
 		},
-		ErrorLog: &log.Logger{},
+		ErrorLog: log.New(&logger.Logger{}, "", 0),
 		BaseContext: func(net.Listener) context.Context {
 			return context.Background()
 		},
