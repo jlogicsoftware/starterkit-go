@@ -1,5 +1,7 @@
 # Starter Kit in Go
 
+## API
+
 The application runs as an HTTP server at port 3000. It provides the following RESTful endpoints:
 
 - POST /auth/signin - accepts username/passwords and returns jwt token and refresh token
@@ -17,12 +19,6 @@ The application runs as an HTTP server at port 3000. It provides the following R
 - DELETE /v1/users/:id - deletes a user
 
 ## Development
-
-Install dev dependencies:
-
-```sh
-make dev
-```
 
 Install Docker images:
 
@@ -42,8 +38,15 @@ Adminer credentials:
 - password: password
 - database: starterkit
 
-Run the application in a watch mode:
+Run the application in a watch mode. Ctl-C to stop.
 
 ```sh
 make watch
+```
+
+For code validation, install dev dependencies first and then run only "check" command:
+
+```sh
+make dev
+make check
 ```

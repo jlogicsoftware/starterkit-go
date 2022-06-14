@@ -31,13 +31,16 @@ func New() (*Server, error) {
 
 	// r.Get("/swagger/*", http.StripPrefix("/swagger/", http.FileServer(http.Dir("/swagger"))))
 	r.Get("/", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("Hello World!"))
+		_, err := w.Write([]byte("Hello World!"))
+		if err != nil {
+			logger.Error().Err(err).Msg("Error writing response")
+		}
 	})
 
 	srv := http.Server{
 		Addr:              fmt.Sprintf(":%d", config.Get().Port),
 		Handler:           r,
-		TLSConfig:         &tls.Config{},
+		// TLSConfig:         &tls.Config{},
 		ReadTimeout:       30 * time.Second,
 		ReadHeaderTimeout: 0,
 		WriteTimeout:      30 * time.Second,
