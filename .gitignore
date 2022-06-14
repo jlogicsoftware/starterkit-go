@@ -13,7 +13,7 @@
 
 # Build / generate output
 dist
-build
+build/postgres/
 bin
 build.out
 test.out

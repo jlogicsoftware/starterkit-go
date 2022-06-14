@@ -30,7 +30,7 @@ func init() {
 	logger.Info().Msg("Loading config...")
 	// Initialize default values
 	instance = &config{
-		Env:  "development",
+		Env:  "production",
 		Port: 3000,
 	}
 	// Overload environment variables

@@ -1,6 +1,16 @@
-APP_BIN = build/app
+APP_BIN = build/server
 
-watch:
+watch: docker.up run
+
+docker.build:
+	docker compose -f ./build/docker-compose.yml build
+
+# Start containers in attached mode to see logs
+docker.up:
+	docker compose -f ./build/docker-compose.yml up -d
+
+# ?
+run:
 	go run cmd/app/main.go
 
 lint:
@@ -12,7 +22,7 @@ $(APP_BIN):
 	go build -o $(APP_BIN) ./cmd/app/main.go
 
 clean:
-	rm -rf ./app/build || true
+	rm -rf ./build/server || true
 
 # ./docs -> ./docs ?
 # ./cmd/app/main.go -> ./cmd/swagger/swagger.go ?
