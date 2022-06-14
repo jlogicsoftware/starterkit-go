@@ -1,0 +1,20 @@
+# Environment Name (development | production; default: production)
+env = "developemnt"
+
+[server]
+	# Server listen to this port
+	PORT = 3000
+	#Cors
+	CORS_URL = "http://localhost:3000"
+
+[database]
+	# Database
+	DATABASE_URL = "postgres://postgres:password@localhost:5432/app-db"
+
+[jwt]
+	SECRET_KEY = "supersecret"
+	# Token Info
+	ACCESS_TOKEN_VALIDITY_DAYS = 30
+	REFRESH_TOKEN_VALIDITY_DAYS = 120
+	TOKEN_ISSUER = "jlogicsoftware.com"
+	TOKEN_AUDIENCE = "jlogicsoftware.com"

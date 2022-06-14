@@ -20,10 +20,16 @@ The application runs as an HTTP server at port 3000. It provides the following R
 
 ## Development
 
-Install Docker images:
+Install all dependencies and build containers:
 
 ```sh
-make docker.build
+make install
+```
+
+Run the application in a watch mode. Ctl-C to stop.
+
+```sh
+make start
 ```
 
 - Application is running at [http://localhost:3000](http://localhost:3000)
@@ -38,15 +44,8 @@ Adminer credentials:
 - password: password
 - database: starterkit
 
-Run the application in a watch mode. Ctl-C to stop.
+For code validation run:
 
 ```sh
-make watch
-```
-
-For code validation, install dev dependencies first and then run only "check" command:
-
-```sh
-make dev
 make check
 ```
