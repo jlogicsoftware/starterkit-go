@@ -43,10 +43,9 @@ $(APP_BIN):
 clean:
 	rm -rf ./bin/server || true
 
-# ./docs -> ./docs ?
-# ./cmd/app/main.go -> ./cmd/swagger/swagger.go ?
 swagger:
-	go init -g ./cmd/app/main.go -o ./docs
+	rm -rf ./docs/openapi; \
+	swag init -d=cmd/app,internal/app/server --output=docs/openapi --parseInternal
 
 migrate:
 	$(APP_BIN) migrate -version $(version)
@@ -56,3 +55,11 @@ migrate.down:
 
 migrate.up:
 	$(APP_BIN) migrate -seq up
+
+test:
+	go test -race -v ./...
+	gofmt -l -e -d .
+	golint ./...
+
+fix:
+	gofmt -l -w .

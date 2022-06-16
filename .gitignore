@@ -15,6 +15,7 @@
 dist
 build/postgres/
 bin
+tmp
 build.out
 test.out
 test/garbage/*.out
