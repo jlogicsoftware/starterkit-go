@@ -22,15 +22,30 @@ The application runs as an HTTP server at port 3000. It provides the following R
 
 Install all dependencies and build containers:
 
+Makefile:
+
 ```sh
 make install
 ```
+
+VSCode Tasks:
+
+`Cmd+Shift+P`: Tasks: Run Task > Install dev dependencies
 
 Run the application in a watch mode. Ctl-C to stop.
 
 ```sh
 make start
 ```
+
+VSCode Tasks:
+
+`Cmd+Shift+B`
+
+or
+
+`Cmd+Shift+P`: Tasks: Run Task > Start
+
 
 - Application is running at [http://localhost:3000](http://localhost:3000)
 - Mailhog mail server accessible at [http://localhost:1025/](http://localhost:1025/)

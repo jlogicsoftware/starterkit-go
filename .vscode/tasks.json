@@ -1,0 +1,66 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "cwd": "${workspaceFolder}",
+  "tasks": [
+    {
+      "label": "Start",
+      "type": "shell",
+      "command": [
+        "docker compose -f ./build/docker-compose.yml up&",
+        "air -c ./configs/.air.toml;",
+        "docker compose -f ./build/docker-compose.yml down"
+      ],
+      "presentation": {
+        "reveal": "always"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Docker Stop",
+      "type": "shell",
+      "command": [
+        "docker-compose -f ./build/docker-compose.yml stop"
+      ],
+      "group": "build",
+      "presentation": {
+        "reveal": "always"
+      }
+    },
+    {
+      "label": "Install dev dependencies",
+      "type": "shell",
+      "command": [
+        "docker compose -f ./build/docker-compose.yml build;",
+        "go install github.com/securego/gosec/v2/cmd/gosec@latest;",
+        "go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.46.2;",
+        "go install github.com/swaggo/swag/cmd/swag@latest;",
+        "go install -tags 'postgres' github.com/golang-migrate/migrate/v4/cmd/migrate@latest;",
+        "go install github.com/cosmtrek/air@latest"
+      ],
+      "group": "build",
+      "presentation": {
+        "reveal": "always"
+      }
+    },
+    {
+      "label": "Docker Up",
+      "type": "shell",
+      "command": [
+        "docker compose -f ./build/docker-compose.yml up",
+      ],
+      "presentation": {
+        "reveal": "silent"
+      },
+      "group": {
+        "kind": "build"
+      },
+      "problemMatcher": []
+    },
+  ]
+}

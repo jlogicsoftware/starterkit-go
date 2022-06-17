@@ -15,8 +15,7 @@ docker.up:
 
 # Run air to watch for changes then clean up on exit
 run:
-	air -c ./configs/.air.toml; \
-	rm -rf ./bin/server
+	air -c ./configs/.air.toml
 
 deps:
 # curl -sfL https://raw.githubusercontent.com/securego/gosec/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v2.12.0

@@ -27,8 +27,7 @@ type Server struct {
 // @Param marketplacecode path string true "the marketplace code (idendifier) for the product"
 // @Router /api/v1/products/{marketplacecode} [get]
 func healthCheck(w http.ResponseWriter, r *http.Request) {
-	_, err := w.Write([]byte("OK"))
-	if err != nil {
+	if _, err := w.Write([]byte("OK!")); err != nil {
 		logger.Error().Err(err).Msg("Error writing response")
 	}
 }

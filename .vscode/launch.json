@@ -2,21 +2,49 @@
   // Use IntelliSense to learn about possible attributes.
   // Hover to view descriptions of existing attributes.
   // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Launch via NPM",
-      "type": "node",
+      "name": "Launch",
+      "type": "go",
       "request": "launch",
-      "cwd": "${workspaceFolder}",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": [
-        "run-script",
-        "watch"
-      ],
-      "skipFiles": [
-        "<node_internals>/**"
-      ]
+      "mode": "debug",
+      "program": "${workspaceFolder}/cmd/app/main.go",
+      "args": [],
+      "env": {
+        "ENV": "development"
+      },
+      "showLog": true,
+      "apiVersion": 2,
+      "trace": "verbose",
+      "debugAdapter": "dlv-dap",
+      "showGlobalVariables": true
+    },
+    {
+      "name": "Local attach",
+      "type": "go",
+      "request": "attach",
+      "mode": "local",
+      "showLog": true,
+      "apiVersion": 2,
+      "trace": "verbose",
+      "debugAdapter": "dlv-dap",
+      "showGlobalVariables": true,
+      "processId": "main"
+    },
+    {
+      "name": "Go in Container",
+      "type": "go",
+      "request": "attach",
+      "mode": "remote",
+      // "remotePath": "./go/src/cmd",
+      "port": 2345,
+      "host": "localhost",
+      // "cwd": "${workspaceRoot}/cmd"
+      "showLog": true,
+      "apiVersion": 2,
+      "trace": "verbose"
     }
   ]
 }
