@@ -4,15 +4,15 @@ tmp_dir = "tmp"
 
 [build]
   args_bin = []
-  bin = "./tmp/main"
-  cmd = 'go build -gcflags="all=-N -l" -o ./tmp/main ./cmd/app'
+  bin = "./tmp/__debug_bin"
+  cmd = 'go build -gcflags="all=-N -l" -o ./tmp/__debug_bin ./cmd/app'
   delay = 1000
   exclude_dir = ["assets", "tmp", "vendor", "testdata"]
   exclude_file = []
   exclude_regex = ["_test.go"]
   exclude_unchanged = false
   follow_symlink = false
-  full_bin = "dlv --listen=:2345 --log --headless --continue --allow-non-terminal-interactive=true --api-version=2 --accept-multiclient exec ./tmp/main"
+  full_bin = "dlv --listen=:2345 --log --headless --continue --allow-non-terminal-interactive=true --api-version=2 --accept-multiclient exec ./tmp/__debug_bin"
   include_dir = []
   include_ext = ["go", "tpl", "tmpl", "html"]
   kill_delay = "0s"

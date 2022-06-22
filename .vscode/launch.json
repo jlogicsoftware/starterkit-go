@@ -20,31 +20,6 @@
       "trace": "verbose",
       "debugAdapter": "dlv-dap",
       "showGlobalVariables": true
-    },
-    {
-      "name": "Local attach",
-      "type": "go",
-      "request": "attach",
-      "mode": "local",
-      "showLog": true,
-      "apiVersion": 2,
-      "trace": "verbose",
-      "debugAdapter": "dlv-dap",
-      "showGlobalVariables": true,
-      "processId": "main"
-    },
-    {
-      "name": "Go in Container",
-      "type": "go",
-      "request": "attach",
-      "mode": "remote",
-      // "remotePath": "./go/src/cmd",
-      "port": 2345,
-      "host": "localhost",
-      // "cwd": "${workspaceRoot}/cmd"
-      "showLog": true,
-      "apiVersion": 2,
-      "trace": "verbose"
     }
   ]
 }

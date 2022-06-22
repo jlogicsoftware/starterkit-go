@@ -22,14 +22,24 @@
       "problemMatcher": []
     },
     {
-      "label": "Docker Stop",
+      "label": "docker:up",
       "type": "shell",
-      "command": [
-        "docker-compose -f ./build/docker-compose.yml stop"
-      ],
+      "command": ["docker compose -f ./build/docker-compose.yml up"],
+      "presentation": {
+        "reveal": "silent"
+      },
+      "group": {
+        "kind": "build"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "docker:stop",
+      "type": "shell",
+      "command": ["docker-compose -f ./build/docker-compose.yml stop"],
       "group": "build",
       "presentation": {
-        "reveal": "always"
+        "reveal": "silent"
       }
     },
     {
@@ -47,20 +57,6 @@
       "presentation": {
         "reveal": "always"
       }
-    },
-    {
-      "label": "Docker Up",
-      "type": "shell",
-      "command": [
-        "docker compose -f ./build/docker-compose.yml up",
-      ],
-      "presentation": {
-        "reveal": "silent"
-      },
-      "group": {
-        "kind": "build"
-      },
-      "problemMatcher": []
-    },
+    }
   ]
 }
